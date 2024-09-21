@@ -2,11 +2,11 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 # Load the tokenizer and model
-tokenizer = AutoTokenizer.from_pretrained("h2oai/h2o-danube3-500m-base")
+tokenizer = AutoTokenizer.from_pretrained("h2oai/h2o-danube2-1.8b-base")
 
 model = AutoModelForCausalLM.from_pretrained(
-    "h2oai/h2o-danube3-500m-base",
-    torch_dtype=torch.float32,  # Use float32 since you are on CPU
+    "h2oai/h2o-danube2-1.8b-base",
+    torch_dtype=torch.bfloat16,
 )
 
 # No .cuda() needed (its nvidia gpu specific)
